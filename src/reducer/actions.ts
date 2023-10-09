@@ -23,7 +23,7 @@ export const setCampaignName = (name: string) => {
     return action;
 };
 
-export const setCampaignDescription = (describe: string) => {
+export const setCampaignDescribe = (describe: string) => {
     const action: Action = {
         type: SET_CAMPAIGN_DESCRIPE,
         payload: { describe },

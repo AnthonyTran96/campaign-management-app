@@ -68,6 +68,7 @@ const reducer = (state: Campaign, action: Action) => {
             const { subCampaignId } = action.payload;
             const newState: Campaign = { ...state };
             newState.subCampaigns[subCampaignId].status = !newState.subCampaigns[subCampaignId].status;
+            console.log(newState.subCampaigns[subCampaignId].status);
             return newState;
         }
         case ADD_ADV: {

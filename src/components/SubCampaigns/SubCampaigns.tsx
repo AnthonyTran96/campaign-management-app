@@ -1,36 +1,51 @@
+import { useContext, useState } from 'react';
 import classNames from 'classnames/bind';
 import { PlusIcon } from '@heroicons/react/24/solid';
 import styles from './SubCampaigns.module.scss';
 import SubCampaignBox from '../SubCampaignBox/SubCampaignBox';
-import AdvertiseList from '../AdvertiseList';
+import { GlobalStateType, GlobalStateContext } from '../GlobalStateProvider';
+import SubCampaignInfo from '../SubCampaignInfo';
+import { addSubCampaign } from '../../reducer/actions';
 
 const cx = classNames.bind(styles);
 
 function SubCampaign() {
+    const { state, dispatch } = useContext<GlobalStateType>(GlobalStateContext);
+    const [subIndex, setSubIndex] = useState(0);
+    const subCampaigns = state.subCampaigns;
+
+    const handleAddSubCampaign = () => {
+        dispatch(addSubCampaign());
+        setSubIndex(subCampaigns.length);
+    };
+
+    const handleClickBox = (index: number) => {
+        setSubIndex(index);
+    };
+
     return (
         <div className={cx('sub')}>
             <div className={cx('sub-boxs')}>
-                <button className={cx('add-box')}>
+                <button className={cx('add-box')} onClick={handleAddSubCampaign}>
                     <PlusIcon className={cx('add-box-plus')} />
                 </button>
-                <SubCampaignBox name="Chiến dịch con 1" quantity={0} status={true} />
-                <SubCampaignBox name="Chiến dịch con 1" quantity={0} status={true} />
-                <SubCampaignBox name="Chiến dịch con 1" quantity={0} status={true} />
-            </div>
-            <div className={cx('sub-info')}>
-                <div className={cx('sub-group1')}>
-                    <input type="text" className={cx('sub-info-input')} placeholder="Tên chiến dịch con" />
-                    <div className={cx('sub-info-status')}>
-                        <div className={cx('status-check')}>
-                            <input className={cx('status-check-input')} type="checkbox" />
+
+                {subCampaigns.map((sub, index) => {
+                    const quantity = sub.ads.reduce((total, ad) => total + ad.quantity, 0);
+                    return (
+                        <div onClick={() => handleClickBox(index)}>
+                            <SubCampaignBox
+                                key={index}
+                                name={sub.name}
+                                quantity={quantity}
+                                status={sub.status}
+                                checked={index === subIndex}
+                            />
                         </div>
-                        <div>Đang hoạt động</div>
-                    </div>
-                </div>
-                <div className={cx('sub-group2')}>
-                    <AdvertiseList />
-                </div>
+                    );
+                })}
             </div>
+            <SubCampaignInfo index={subIndex} />
         </div>
     );
 }
