@@ -1,0 +1,72 @@
+.box {
+    width: 21rem;
+    height: 12rem;
+    margin-left: 1.6rem;
+    cursor: pointer;
+    border: 2px solid rgb(33, 150, 243);
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.box-group {
+    padding: 8px 8px 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-name {
+    font-size: 2rem;
+}
+
+.box-status {
+    margin-left: 0.8rem;
+    background-color: rgb(0, 128, 0);
+    color: #fff;
+    font-size: 1rem;
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 100%;
+}
+
+.box-quantity {
+    position: relative;
+    font-size: 2.4rem;
+    padding: 0rem 0.8rem;
+    text-align: center;
+    &::before {
+        content: 'Số lượng';
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+        color: #fff;
+        position: absolute;
+        top: 8px;
+        left: -67px;
+        border-radius: 4px;
+        width: 6rem;
+        height: 2rem;
+        background-color: #707070;
+        opacity: 0;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 12px;
+        left: -15px;
+        background-color: #707070;
+        width: 1.2rem;
+        height: 1.2rem;
+        transform: rotate(45deg);
+        border-radius: 2px;
+        opacity: 0;
+    }
+    &:hover::before,
+    &:hover::after {
+        opacity: 1;
+    }
+}

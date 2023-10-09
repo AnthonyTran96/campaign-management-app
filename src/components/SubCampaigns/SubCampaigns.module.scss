@@ -1,0 +1,78 @@
+.sub {
+    width: 100%;
+}
+
+.sub-boxs {
+    display: flex;
+    align-items: flex-start;
+}
+
+.add-box {
+    width: 5rem;
+    height: 5rem;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.add-box-plus {
+    width: 2rem;
+    height: 2rem;
+    color: red;
+}
+
+.sub-info {
+    margin-top: 1.6rem;
+    width: 100%;
+}
+
+.sub-group1 {
+    width: 100%;
+    padding: 0.8rem;
+    display: flex;
+}
+
+.sub-info-input {
+    padding: 0.8rem;
+    display: inline-block;
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+    border: none;
+}
+
+.sub-info-status {
+    padding: 0.4rem;
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.status-check {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    &:hover {
+        background-color: rgba(63, 81, 181, 0.04);
+    }
+}
+
+.status-check-input {
+    background-color: #3f51b5;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.sub-group2 {
+    width: 100%;
+    margin-top: 1.6rem;
+}
