@@ -13,12 +13,10 @@ function SubCampaignInfo({ index }: { index: number }) {
 
     const handleSubNameChange = (e: ChangeEvent<HTMLInputElement>) => {
         dispatch(setSubCampaignName(index.toString(), e.target.value));
-        console.log(state);
     };
 
     const handleSubStatusChange = () => {
         dispatch(setSubCampaignStatus(index.toString()));
-        console.log(state.subCampaigns[index]);
     };
 
     return (
@@ -37,6 +35,7 @@ function SubCampaignInfo({ index }: { index: number }) {
                             className={cx('status-check-input')}
                             checked={subCampaign.status}
                             type="checkbox"
+                            readOnly
                             placeholder="Đang hoạt động"
                         />
                     </div>
@@ -44,7 +43,7 @@ function SubCampaignInfo({ index }: { index: number }) {
                 </div>
             </div>
             <div className={cx('sub-group2')}>
-                <AdvertiseList />
+                <AdvertiseList index={index} />
             </div>
         </div>
     );

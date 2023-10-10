@@ -29,13 +29,11 @@ function SubCampaign() {
                 <button className={cx('add-box')} onClick={handleAddSubCampaign}>
                     <PlusIcon className={cx('add-box-plus')} />
                 </button>
-
                 {subCampaigns.map((sub, index) => {
                     const quantity = sub.ads.reduce((total, ad) => total + ad.quantity, 0);
                     return (
-                        <div onClick={() => handleClickBox(index)}>
+                        <div key={index} onClick={() => handleClickBox(index)}>
                             <SubCampaignBox
-                                key={index}
                                 name={sub.name}
                                 quantity={quantity}
                                 status={sub.status}

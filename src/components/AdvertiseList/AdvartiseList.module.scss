@@ -14,6 +14,7 @@ table.adv-table {
 
 tr.adv-row {
     border-bottom: 1px solid #ddd;
+    width: 100%;
     th {
         padding: 0.8rem 1.6rem;
         vertical-align: middle;
@@ -29,6 +30,13 @@ tr.adv-row {
     }
 }
 
+.lock {
+    background-color: #feebf2;
+    .delete-adv {
+        opacity: 0.5;
+    }
+}
+
 .add-adv {
     display: flex;
     justify-content: center;
@@ -38,6 +46,7 @@ tr.adv-row {
     color: #3f51b5;
     border: 0.5px solid #3f51b5;
     cursor: pointer;
+    margin: auto;
 }
 
 .add-adv-icon {
@@ -50,6 +59,7 @@ tr.adv-row {
     padding: 0.6rem 0rem;
     border: none;
     border-bottom: 1px solid #000;
+    background-color: transparent;
 }
 
 .delete-adv {
@@ -57,6 +67,7 @@ tr.adv-row {
     height: 2rem;
     border: 0px;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .status-check-input {

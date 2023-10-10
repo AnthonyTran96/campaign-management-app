@@ -12,10 +12,12 @@
 .sub-info-input {
     padding: 0.8rem;
     display: inline-block;
+    font-size: 1.6rem;
     flex-grow: 0;
     max-width: 66.666667%;
     flex-basis: 66.666667%;
     border: none;
+    border-bottom: 1.5px solid #949494;
 }
 
 .sub-info-status {

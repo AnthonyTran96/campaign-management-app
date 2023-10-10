@@ -14,4 +14,4 @@ export const SET_ADV_NAME = 'SET_ADV_NAME';
 
 export const SET_ADV_QUANTITY = 'SET_ADV_QUANTITY';
 
-export const DELETE_ADV = 'DELETE_ADV';
+export const DELETE_ADS = 'DELETE_ADS';

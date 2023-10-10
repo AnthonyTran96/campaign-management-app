@@ -9,7 +9,7 @@ import {
     ADD_ADV,
     SET_ADV_NAME,
     SET_ADV_QUANTITY,
-    DELETE_ADV,
+    DELETE_ADS,
 } from './constants';
 
 //reducer
@@ -68,13 +68,12 @@ const reducer = (state: Campaign, action: Action) => {
             const { subCampaignId } = action.payload;
             const newState: Campaign = { ...state };
             newState.subCampaigns[subCampaignId].status = !newState.subCampaigns[subCampaignId].status;
-            console.log(newState.subCampaigns[subCampaignId].status);
             return newState;
         }
         case ADD_ADV: {
             const { subCampaignId } = action.payload;
+            const adsLength = state.subCampaigns[subCampaignId].ads.length;
             const newState: Campaign = { ...state };
-            const adsLength = newState.subCampaigns[subCampaignId].ads.length;
             newState.subCampaigns[subCampaignId].ads.push({
                 name: `Quảng cáo ${adsLength + 1}`,
                 quantity: 0,
@@ -93,10 +92,11 @@ const reducer = (state: Campaign, action: Action) => {
             newState.subCampaigns[subCampaignId].ads[advId].quantity = quantity;
             return newState;
         }
-        case DELETE_ADV: {
-            const { subCampaignId, advId } = action.payload;
+        case DELETE_ADS: {
+            const { subCampaignId, advIds } = action.payload;
             const newState: Campaign = { ...state };
-            newState.subCampaigns[subCampaignId].ads.splice(advId, 1);
+            const subCampaign = newState.subCampaigns[subCampaignId];
+            subCampaign.ads = subCampaign.ads.filter((_, index) => !advIds.includes(index.toString()));
             return newState;
         }
         default:

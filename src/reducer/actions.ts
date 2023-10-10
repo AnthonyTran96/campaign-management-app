@@ -7,7 +7,7 @@ import {
     ADD_ADV,
     SET_ADV_NAME,
     SET_ADV_QUANTITY,
-    DELETE_ADV,
+    DELETE_ADS,
 } from './constants';
 
 export interface Action {
@@ -93,12 +93,12 @@ export const setAdvQuantity = (subCampaignId: string, advId: string, quantity: n
     return action;
 };
 
-export const deleteAdv = (subCampaignId: string, advId: string) => {
+export const deleteAds = (subCampaignId: string, advIds: string[]) => {
     const action: Action = {
-        type: DELETE_ADV,
+        type: DELETE_ADS,
         payload: {
             subCampaignId,
-            advId,
+            advIds,
         },
     };
     return action;
