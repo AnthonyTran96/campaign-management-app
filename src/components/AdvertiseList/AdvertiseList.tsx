@@ -11,6 +11,7 @@ function AdvertiseList({ index }: { index: number }) {
     const { state, dispatch } = useContext<GlobalStateType>(GlobalStateContext);
     const [deleteIndexs, setDeleteIndexs] = useState<string[]>([]);
     const ads = state.subCampaigns[index].ads;
+    const varEnable = state.varEnable;
 
     const handleAddAdv = (index: number) => {
         dispatch(addAdv(index.toString()));
@@ -118,7 +119,7 @@ function AdvertiseList({ index }: { index: number }) {
                             <td>
                                 <input
                                     type="text"
-                                    className={cx('adv-input')}
+                                    className={cx('adv-input', { var: varEnable && ad.quantity === 0 })}
                                     onChange={(e) => handleAdvQuantityChange(e, adIndex)}
                                     value={ad.quantity}
                                     placeholder="Số lượng"

@@ -13,6 +13,8 @@ function SubCampaign() {
     const { state, dispatch } = useContext<GlobalStateType>(GlobalStateContext);
     const [subIndex, setSubIndex] = useState(0);
     const subCampaigns = state.subCampaigns;
+    const varEnable = state.varEnable;
+    console.log(varEnable);
 
     const handleAddSubCampaign = () => {
         dispatch(addSubCampaign());
@@ -38,6 +40,7 @@ function SubCampaign() {
                                 quantity={quantity}
                                 status={sub.status}
                                 checked={index === subIndex}
+                                varEnable={varEnable && quantity === 0}
                             />
                         </div>
                     );

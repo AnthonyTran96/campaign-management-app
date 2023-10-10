@@ -56,10 +56,21 @@ tr.adv-row {
 
 .adv-input {
     width: 100%;
-    padding: 0.6rem 0rem;
+    padding: 0.6rem 0.2rem;
     border: none;
-    border-bottom: 1px solid #000;
+    border: 1.5px solid transparent;
+    border-bottom-color: #949494;
     background-color: transparent;
+}
+
+.var {
+    border-color: red;
+    outline-color: red;
+    caret-color: red;
+    border-radius: 4px;
+    &::placeholder {
+        color: red;
+    }
 }
 
 .delete-adv {

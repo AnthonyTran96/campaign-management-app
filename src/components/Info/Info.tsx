@@ -10,6 +10,7 @@ function Info() {
     const { state, dispatch } = useContext<GlobalStateType>(GlobalStateContext);
     const name = state.information.name;
     const describe = state.information.describe;
+    const varEnable = state.varEnable;
 
     const handleNameInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         dispatch(setCampaignName(e.target.value));
@@ -22,11 +23,11 @@ function Info() {
     return (
         <div className={cx('info')}>
             <input
-                className={cx('info-input')}
+                className={cx('info-input', { var: varEnable && name.length === 0 })}
                 value={name}
                 onChange={handleNameInputChange}
                 type="text"
-                placeholder="Tên chiến dịch"
+                placeholder="Tên chiến dịch *"
             />
             <input
                 className={cx('info-input')}

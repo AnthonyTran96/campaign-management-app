@@ -9,13 +9,14 @@ interface BoxProps {
     quantity: number;
     status: boolean;
     checked: boolean;
+    varEnable: boolean;
 }
 
-function SubCampaignBox({ name, quantity, status, checked = false }: BoxProps) {
+function SubCampaignBox({ name, quantity, status, varEnable, checked = false }: BoxProps) {
     return (
         <div className={cx('box', { checked })}>
             <div className={cx('box-group')}>
-                <span className={cx('box-name')}>{name}</span>
+                <span className={cx('box-name', { var: varEnable })}>{name}</span>
                 <span className={cx('box-status', { active: status })}>
                     <CheckIcon />
                 </span>

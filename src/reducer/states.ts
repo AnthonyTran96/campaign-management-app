@@ -18,7 +18,7 @@ export interface SubCampaign {
 export interface Campaign {
     information: Information;
     subCampaigns: SubCampaign[];
-    varEnable?: boolean;
+    varEnable: boolean;
 }
 
 //initState
