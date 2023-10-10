@@ -16,8 +16,18 @@
     flex-grow: 0;
     max-width: 66.666667%;
     flex-basis: 66.666667%;
-    border: none;
-    border-bottom: 1.5px solid #949494;
+    border: 1.5px solid transparent;
+    border-bottom-color: #949494;
+}
+
+.var {
+    border-color: red;
+    outline-color: red;
+    caret-color: red;
+    border-radius: 4px;
+    &::placeholder {
+        color: red;
+    }
 }
 
 .sub-info-status {

@@ -110,7 +110,7 @@ function AdvertiseList({ index }: { index: number }) {
                             <td>
                                 <input
                                     type="text"
-                                    className={cx('adv-input')}
+                                    className={cx('adv-input', { var: varEnable && ad.name.length === 0 })}
                                     onChange={(e) => handleAdvNameChange(e, adIndex)}
                                     value={ad.name}
                                     placeholder="Quảng cáo"

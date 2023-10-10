@@ -10,6 +10,7 @@ const cx = classNames.bind(styles);
 function SubCampaignInfo({ index }: { index: number }) {
     const { state, dispatch } = useContext<GlobalStateType>(GlobalStateContext);
     const subCampaign = state.subCampaigns[index];
+    const varEnable = state.varEnable;
 
     const handleSubNameChange = (e: ChangeEvent<HTMLInputElement>) => {
         dispatch(setSubCampaignName(index.toString(), e.target.value));
@@ -24,7 +25,7 @@ function SubCampaignInfo({ index }: { index: number }) {
             <div className={cx('sub-group1')}>
                 <input
                     type="text"
-                    className={cx('sub-info-input')}
+                    className={cx('sub-info-input', { var: varEnable && subCampaign.name.length === 0 })}
                     value={subCampaign.name}
                     onChange={handleSubNameChange}
                     placeholder="Tên chiến dịch con"
