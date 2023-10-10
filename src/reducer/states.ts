@@ -1,7 +1,7 @@
 //define types
 export interface Information {
     name: string;
-    describe?: string;
+    describe: string;
 }
 
 export interface Ad {
@@ -18,12 +18,14 @@ export interface SubCampaign {
 export interface Campaign {
     information: Information;
     subCampaigns: SubCampaign[];
+    varEnable?: boolean;
 }
 
 //initState
 export const initState: Campaign = {
     information: {
         name: '',
+        describe: '',
     },
     subCampaigns: [
         {
@@ -37,4 +39,5 @@ export const initState: Campaign = {
             ],
         },
     ],
+    varEnable: false,
 };

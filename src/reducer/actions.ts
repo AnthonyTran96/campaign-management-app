@@ -8,6 +8,7 @@ import {
     SET_ADV_NAME,
     SET_ADV_QUANTITY,
     DELETE_ADS,
+    SET_VAR,
 } from './constants';
 
 export interface Action {
@@ -99,6 +100,16 @@ export const deleteAds = (subCampaignId: string, advIds: string[]) => {
         payload: {
             subCampaignId,
             advIds,
+        },
+    };
+    return action;
+};
+
+export const setVar = (status: boolean) => {
+    const action: Action = {
+        type: SET_VAR,
+        payload: {
+            status,
         },
     };
     return action;

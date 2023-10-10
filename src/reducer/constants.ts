@@ -15,3 +15,5 @@ export const SET_ADV_NAME = 'SET_ADV_NAME';
 export const SET_ADV_QUANTITY = 'SET_ADV_QUANTITY';
 
 export const DELETE_ADS = 'DELETE_ADS';
+
+export const SET_VAR = 'SET_VAR';

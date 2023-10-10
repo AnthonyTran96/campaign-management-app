@@ -10,6 +10,7 @@ import {
     SET_ADV_NAME,
     SET_ADV_QUANTITY,
     DELETE_ADS,
+    SET_VAR,
 } from './constants';
 
 //reducer
@@ -97,6 +98,11 @@ const reducer = (state: Campaign, action: Action) => {
             const newState: Campaign = { ...state };
             const subCampaign = newState.subCampaigns[subCampaignId];
             subCampaign.ads = subCampaign.ads.filter((_, index) => !advIds.includes(index.toString()));
+            return newState;
+        }
+        case SET_VAR: {
+            const { status } = action.payload;
+            const newState: Campaign = { ...state, varEnable: status };
             return newState;
         }
         default:
