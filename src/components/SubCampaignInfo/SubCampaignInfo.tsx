@@ -28,7 +28,7 @@ function SubCampaignInfo({ index }: { index: number }) {
                     className={cx('sub-info-input', { var: varEnable && subCampaign.name.length === 0 })}
                     value={subCampaign.name}
                     onChange={handleSubNameChange}
-                    placeholder="Tên chiến dịch con"
+                    placeholder="Tên chiến dịch con*"
                 />
                 <div className={cx('sub-info-status')} onClick={handleSubStatusChange}>
                     <div className={cx('status-check')}>
