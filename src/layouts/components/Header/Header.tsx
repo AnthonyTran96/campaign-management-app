@@ -11,20 +11,31 @@ interface Data extends Omit<Campaign, 'varEnable'> {}
 
 const handleCheckData = (data: Data, dispatch: React.Dispatch<Action>) => {
     const campaignName: string = data.information.name;
-    if (campaignName === '') {
+    let hasError = false;
+
+    const handleSetVar = () => {
+        hasError = true;
         window.alert('Vui lòng điền đúng và đầy đủ thông tin');
         dispatch(setVar(true));
+    };
+
+    if (campaignName === '') {
+        handleSetVar();
         return;
     }
-    let hasError = false;
+
     const subCampaigns: SubCampaign[] = data.subCampaigns;
+
     subCampaigns.forEach((sub) => {
+        if (hasError) return;
+        if (sub.name.length === 0) {
+            handleSetVar();
+            return;
+        }
         sub.ads.forEach((ad) => {
             if (hasError) return;
-            if (ad.quantity === 0) {
-                hasError = true;
-                window.alert('Vui lòng điền đúng và đầy đủ thông tin');
-                dispatch(setVar(true));
+            if (ad.quantity === 0 || ad.name.length === 0) {
+                handleSetVar();
                 return;
             }
         });
