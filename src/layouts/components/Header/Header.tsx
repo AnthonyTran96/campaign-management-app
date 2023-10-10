@@ -20,10 +20,11 @@ const handleCheckData = (data: Data, dispatch: React.Dispatch<Action>) => {
     const subCampaigns: SubCampaign[] = data.subCampaigns;
     subCampaigns.forEach((sub) => {
         sub.ads.forEach((ad) => {
+            if (hasError) return;
             if (ad.quantity === 0) {
+                hasError = true;
                 window.alert('Vui lòng điền đúng và đầy đủ thông tin');
                 dispatch(setVar(true));
-                hasError = true;
                 return;
             }
         });
